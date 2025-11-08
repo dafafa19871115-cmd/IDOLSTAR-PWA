@@ -143,3 +143,87 @@ main {
     margin-bottom: 15px;
     border: 1px solid #eee;
 }
+/* ... 添加到 style.css ... */
+
+/* 匹配卡片堆疊 */
+.card-stack {
+    position: relative;
+    width: 90%;
+    max-width: 300px; /* 卡片寬度 */
+    height: 400px;    /* 卡片高度 */
+    margin: 20px auto;
+}
+
+.match-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    overflow: hidden; /* 確保圖片圓角 */
+
+    /* 關鍵：飛出動畫的過渡效果 */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease;
+}
+
+.match-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.match-card h3, .match-card p {
+    padding: 0 15px;
+}
+
+/* * 堆疊效果：後面的卡片稍微縮小並向下移一點
+ * :nth-child(1) 是最底下的
+ * :nth-child(2) 是中間的
+ * :nth-child(3) 是最上面的 (如果是 3 張卡片的話)
+ * 我們用 JS 來移除最上面的，所以這個 CSS 會自動更新
+ */
+.card-stack .match-card:nth-last-child(2) {
+    transform: translateY(10px) scale(0.95);
+    opacity: 0.9;
+}
+.card-stack .match-card:nth-last-child(1) {
+    /* 這是最頂層的卡片，正常顯示 */
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* 匹配按鈕 */
+.match-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.match-buttons button {
+    font-size: 30px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#btn-nope { color: #ff4d4d; }
+#btn-like { color: #4ddbff; }
+
+
+/* * 關鍵的飛出動畫類 (由 JS 添加)
+ */
+.match-card.nope {
+    /* 向左飛出並旋轉 */
+    transform: translateX(-150%) rotate(-20deg) !important;
+    opacity: 0 !important;
+}
+
+.match-card.like {
+    /* 向右飛出並旋轉 */
+    transform: translateX(150%) rotate(20deg) !important;
+    opacity: 0 !important;
+}
