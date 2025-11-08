@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>IDOLSTAR (原型)</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <div id="page-login" class="page active">
+            <header><h1>IDOLSTAR</h1></header>
+            <main>
+                <h2>登錄 / 註冊</h2>
+                <p>這裡是登錄和註冊表單。</p>
+                <button id="btn-goto-select-idols">註冊並下一步</button>
+            </main>
+        </div>
+
+        <div id="page-select-idols" class="page">
+            <header><h1>選擇你關注的偶像</h1></header>
+            <main>
+                <p>選擇偶像列表...</p>
+                <button id="btn-finish-onboarding">完成</button>
+            </main>
+        </div>
+
+        <div id="page-discover" class="page">
+            <header><h1>🏠 發現</h1></header>
+            <main>
+                <article class="post">
+                    <p>一篇美圖貼文...</p>
+                    <button>保存</button>
+                    <button>⭐ 應援</button>
+                </article>
+                <article class="post">
+                    <p>我的新貼文...</p>
+                    <button>保存</button>
+                    <button>⭐ 應援</button>
+                </article>
+            </main>
+        </div>
+
+        <div id="page-match" class="page">
+            <header><h1>⭐ 匹配</h1></header>
+            <main>
+                <p>設置篩選條件...</p>
+                <div class="match-card">
+                    <p>用戶卡片 (向左滑動...)</p>
+                </div>
+                <div class="match-buttons">
+                    <button>❌</button>
+                    <button>❤️</button>
+                </div>
+            </main>
+        </div>
+
+        <div id="page-groups" class="page">
+            <header><h1>💬 群組中心</h1></header>
+            <main>
+                <div class="chat-item">匹配成功的用戶 A</div>
+                <div class="chat-item">群組：Aokbab & Rin 討論組</div>
+            </main>
+        </div>
+
+        <div id="page-profile" class="page">
+            <header>
+                <h1>👤 追星儀表板</h1>
+                <button id="btn-goto-treehole">🌙 進入樹洞</button>
+            </header>
+            <main>
+                <section class="dashboard-module">
+                    <h3>📊 數據總覽</h3>
+                    <p>本月花費: $XXXX</p>
+                </section>
+                <section class="dashboard-module">
+                    <h3>📝 我的記錄本</h3>
+                    <p>... 記帳列表 ...</p>
+                    <button>+ 手動錄入一筆花費</button>
+                </section>
+                <section class="dashboard-module">
+                    <h3>⭐ 我的關注</h3>
+                    <p>偶像 A - 近期行程...</p>
+                    <button>+ 添加到日曆</button>
+                </section>
+            </main>
+        </div>
+
+        <div id="page-treehole" class="page treehole-mode">
+            <header>
+                <button id="btn-exit-treehole">❌ 退出</button>
+                <h1>🌙 樹洞</h1>
+            </header>
+            <main>
+                <div class="tabs">
+                    <button class="active">[同担的]</button>
+                    <button>[我的]</button>
+                </div>
+                <article class="treehole-post">
+                    <p>... 沒搶到票 T_T ...</p>
+                    <button>🤗 抱一下</button>
+                </article>
+                <button class="fab">+</button>
+            </main>
+        </div>
+
+        <div id="modal-publish" class="modal">
+            <div class="modal-content">
+                <button id="btn-close-publish" class="close-modal">X</button>
+                <h2>✨ 發布新貼文</h2>
+                <p>選擇偶像...</p>
+                <textarea placeholder="輸入內容..."></textarea>
+                <button>上傳圖片</button>
+                <button id="btn-submit-publish">發布</button>
+            </div>
+        </div>
+
+    </div>
+
+    <nav class="bottom-nav">
+        <button class="nav-btn" data-page="page-discover">🏠</button>
+        <button class="nav-btn" data-page="page-match">⭐</button>
+        <button id="btn-show-publish" class="nav-btn-publish">✨</button>
+        <button class="nav-btn" data-page="page-groups">💬</button>
+        <button class="nav-btn" data-page="page-profile">👤</button>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>
